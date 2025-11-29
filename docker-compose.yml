@@ -1,0 +1,18 @@
+services:
+  go-api:
+    build: .
+    container_name: go-llm-stream
+    ports:
+      - "3950:3950"
+    environment:
+      - PORT=3950
+    # Konfigurasi resource limit agar "low resource"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1" # Hanya boleh pakai 10% dari 1 core CPU
+          memory: 20M # Maksimal RAM 20MB (Go biasanya idle di 5-10MB)
+        reservations:
+          cpus: "0.05"
+          memory: 10M
+    restart: unless-stopped
