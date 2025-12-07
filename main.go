@@ -134,7 +134,7 @@ func standardData(w http.ResponseWriter, r *http.Request) {
 		"id":      "a1b2-c3d4-e5f6",
 		"type":    "static_response",
 		"title":   "Complete Static Data",
-		"message": "This is a complete JSON response sent all at once. Go is fast!",
+		"message": strings.Join(textWords, ""),
 		"author":  "Practice API (Go)",
 		"metadata": map[string]string{
 			"timestamp": time.Now().Format(time.RFC3339),
@@ -192,7 +192,7 @@ func healthCheck(w http.ResponseWriter, r *http.Request) {
 func rootHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 	fmt.Fprint(w, `
-		Practice API server is running (Golang Version).<br>
+		Practice API server is running.<br>
 		Try accessing:<br>
 		- /stream-sse<br>
 		- /stream-ndjson<br>
