@@ -134,7 +134,7 @@ func standardData(w http.ResponseWriter, r *http.Request) {
 		"id":      "a1b2-c3d4-e5f6",
 		"type":    "static_response",
 		"title":   "Complete Static Data",
-		"message": strings.Join(textWords, ""),
+		"message": strings.Join(textWords, " "),
 		"author":  "Practice API (Go)",
 		"metadata": map[string]string{
 			"timestamp": time.Now().Format(time.RFC3339),
